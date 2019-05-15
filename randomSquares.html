@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head >
+    <meta charset="UTF-8">
+    <title id="start">animated Canvas demo</title>
+</head>
+<body>
+<div id="text1"></div>
+<canvas id="drawing" >
+
+</canvas>
+
+<script>
+    var h;
+    var w;
+    var c;
+    var xaxis;
+    var yaxis;
+
+    window.onload = function ()
+    {
+        var canvas = document.getElementById("drawing");
+        w=canvas.width = window.innerWidth;
+        h=canvas.height = window.innerHeight;
+        c = canvas.getContext("2d");
+        animate();
+    };
+    var x1 =0;
+    var y1 =0;
+    var h1=10;
+    var w1 =10;
+
+    function animate()
+    {
+         x1 = Math.random()*w;
+         y1 = Math.random()*h;
+        c.fillStyle="red";
+        c.fillRect(x1, y1, h1, w1);
+        console.log("x and y coordinates ",x1, ',', y1, "size of square h and w:" ,h1, w1);
+        requestAnimationFrame(animate);
+        c.clearRect(x1+=200*xaxis,y1+=200*yaxis,h1,w1);
+    }
+    </script>
+</body>
+</html>

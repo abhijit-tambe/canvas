@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head >
+    <meta charset="UTF-8">
+    <title id="start">Canvas</title>
+</head>
+<body >
+<div id="text1">   dasdsa</div>
+<canvas id="drawing" >
+
+</canvas>
+<style>
+    body{
+        overflow: hidden;
+    }
+</style>
+
+
+    <script>
+        var canvas,h,w,mh,mw,c,s,y,xaxis,yaxis,zaxis ,za ,xa,ya;
+
+        console.log("started to draw canvas");
+        canvas = document.getElementById("drawing");
+        c = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        h = canvas.height;
+        w = canvas.width;
+        mh = h / 2;
+        mw = w / 2;
+
+
+        background();
+            function background(){
+            c.fillStyle = "white";
+            c.fillRect(0, 0, w, h);
+        }
+            backgroundstrips();
+            //loop for black strips
+            function backgroundstrips(){
+            c.fillStyle = "black";
+             y = h / 25;
+             s = y;
+
+            for (let i = 0; i < 12; i++) {
+                c.fillStyle = "black";
+                c.fillRect(0, y, w, h / 25);
+
+                y += 2 * (h / 25);
+
+
+            }
+        }
+
+            twomiddlecircle();
+
+            function twomiddlecircle(){
+            // circle on right side
+            c.fillStyle = "#000000";
+            c.beginPath();
+            c.arc(mw - (0.353 * h), mh, 0.60 * h, 1.7 * Math.PI, 0.3 * Math.PI, false);
+            c.fill();
+
+            // circle on left side
+            c.fillStyle = "#000000";
+            c.beginPath();
+            c.arc(mw + (0.353 * h), mh, 0.60 * h, 0.7 * Math.PI, 1.3 * Math.PI, false);
+            c.fill();
+            }
+            //done till here
+
+            curvestrips();
+
+            function curvestrips() {
+                //fill 1st strip
+                y = s;
+                for (let i = 0; i < 2; i++) {
+                    c.fillStyle = "white";
+                    // c.lineWidth="1";
+                    c.beginPath();
+                    //console.log(y);
+                    c.moveTo(mw - (0.245 * h), mh - (y / 2));
+                    c.lineTo(mw + (0.245 * h), mh - (y / 2));
+                    c.lineTo(mw + (0.242 * h), mh - ((y / 2) + y));
+                    c.lineTo(mw - (0.242 * h), mh - ((y / 2) + y));
+                    c.closePath();
+                    // c.stroke();
+                    //console.log(y);
+                    y = y * (-1);
+                    c.fill();
+                }
+
+                //fill 2st strip
+                y = s;
+                for (let i = 0; i < 2; i++) {
+                    //c.fillStyle = "red";
+                    //c.lineWidth="1";
+                    c.beginPath();
+                    c.moveTo(mw - (0.237 * h), mh - ((y / 2) + 2 * y));
+                    c.lineTo(mw + (0.237 * h), mh - ((y / 2) + 2 * y));
+                    c.lineTo(mw + (0.229 * h), mh - ((y / 2) + 3 * y));
+                    c.lineTo(mw - (0.229 * h), mh - ((y / 2) + 3 * y));
+                    c.closePath();
+                    //c.stroke();
+                    y = y * (-1);
+                    c.fill();
+                }
+
+                //fill 3rd strip
+                y = s;
+                for (let i = 0; i < 2; i++) {
+                    // c.fillStyle = "orange";
+                    //c.lineWidth="1";
+                    c.beginPath();
+                    c.moveTo(mw - (0.220 * h), mh - ((y / 2) + 4 * y));
+                    c.lineTo(mw + (0.220 * h), mh - ((y / 2) + 4 * y));
+                    c.lineTo(mw + (0.205 * h), mh - ((y / 2) + 5 * y));
+                    c.lineTo(mw - (0.205 * h), mh - ((y / 2) + 5 * y));
+                    c.closePath();
+                    //c.stroke();
+                    y = y * (-1);
+                    c.fill();
+                }
+
+                //fill 4th strip
+                y = s;
+                for (let i = 0; i < 2; i++) {
+                    //c.fillStyle = "yellow";
+                    //c.lineWidth="1";
+                    c.beginPath();
+                    c.moveTo(mw - (0.185 * h), mh - ((y / 2) + 6 * y));
+                    c.lineTo(mw + (0.185 * h), mh - ((y / 2) + 6 * y));
+                    c.lineTo(mw + (0.165 * h), mh - ((y / 2) + 7 * y));
+                    c.lineTo(mw - (0.165 * h), mh - ((y / 2) + 7 * y));
+                    c.closePath();
+                    //c.stroke();
+                    y = y * (-1);
+                    c.fill();
+                }
+
+                //fill 5th strip
+                y = s;
+                for (let i = 0; i < 2; i++) {
+                    //c.fillStyle = "lightblue";
+                    //c.lineWidth="1";
+                    c.beginPath();
+                    c.moveTo(mw - (0.140 * h), mh - ((y / 2) + 8 * y));
+                    c.lineTo(mw + (0.140 * h), mh - ((y / 2) + 8 * y));
+                    c.lineTo(mw + (0.110 * h), mh - ((y / 2) + 9 * y));
+                    c.lineTo(mw - (0.110 * h), mh - ((y / 2) + 9 * y));
+                    c.closePath();
+                    //c.stroke();
+                    y = y * (-1);
+                    c.fill();
+                }
+
+
+                //fill 6th strip
+                y = s;
+                for (let i = 0; i < 2; i++) {
+                    //c.fillStyle = "purple";
+                    //c.lineWidth="1";
+                    c.beginPath();
+                    c.moveTo(mw - (0.075 * h), mh - ((y / 2) + 10 * y));
+                    c.lineTo(mw + (0.075 * h), mh - ((y / 2) + 10 * y));
+                    c.lineTo(mw + (0.032 * h), mh - ((y / 2) + 11 * y));
+                    c.lineTo(mw - (0.032 * h), mh - ((y / 2) + 11 * y));
+                    c.closePath();
+                    //c.stroke();
+                    y = y * (-1);
+                    c.fill();
+                }
+            }
+
+           // animate();
+
+        var initialx=0,initialy=0;
+        var eh=150; var ew =150;
+        window.addEventListener("devicemotion", handleMotionEvent, true);
+        function handleMotionEvent(event) {
+            console.log("motion started");
+            xaxis = event.accelerationIncludingGravity.x;
+            yaxis = event.accelerationIncludingGravity.y;
+            zaxis = event.accelerationIncludingGravity.z;
+            xa = Math.round(xaxis); ya =Math.round(yaxis); za = Math.round(zaxis);
+            document.getElementById("text1").innerHTML = "x:"+xa +"  y:"+ya+"  z:" +zaxis;
+            console.log(xa,ya);
+            c.fillStyle="red";
+
+
+            c.fillRect(initialx,initialy,ew,eh);
+            c.translate(initialx-xa,initialy+ya);
+            c.clearRect(initialx+xa,initialy-ya,ew,eh);
+            c.fillRect(initialx,initialy,ew,eh);
+            //ew +=za; eh +=za;
+
+
+
+        }
+
+        // var newx=100,newy;
+        // function animate(){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //
+        //   //   c.fillStyle="red";
+        //   //  // for (let i = 0; i < 12; i++) {
+        //   //
+        //   //       if(newx <= w){
+        //   //
+        //   //           c.fillRect(0, y, newx, h / 25);
+        //   //       }
+        //   //       else{
+        //   //           y += 2 * (h / 25);
+        //   //           c.fillRect(0, y, newx, h / 25);
+        //   //       }
+        //   //       //y += 2 * (h / 25);
+        //   //       console.log("animate");
+        //   //       newx += Math.round(xaxis)*100;
+        //   // //  }
+        //     c.fillStyle="red";
+        //     h=10;w=10;
+        //     c.fillRect(0,0,h,w);
+        //     h+=Math.abs(xaxis);w+=Math.abs(yaxis);
+        //     console.log(h,w);
+        //     requestAnimationFrame(animate);
+
+       // }
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>
